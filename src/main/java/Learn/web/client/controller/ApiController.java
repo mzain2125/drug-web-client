@@ -19,7 +19,7 @@ public class ApiController {
 
     @GetMapping(value = "/drug/{ndc}")
     public ResponseEntity<?> getDrugData(@PathVariable String ndc) {
-        String response = apiService.getData(ndc);
+        BaseResponse<?> response = apiService.getData(ndc);
         return ResponseEntity.ok(response);
     }
 }

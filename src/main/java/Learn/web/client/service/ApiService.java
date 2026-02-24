@@ -16,13 +16,15 @@ public class ApiService {
         this.webClient = webClient;
     }
 
-    public String getData(String ndc) {
+    public BaseResponse<Dto> getData(String ndc) {
+
         return webClient.get()
                 .uri("http://localhost:8989/api/drug/ndc/{ndc}", ndc)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(new ParameterizedTypeReference<BaseResponse<Dto>>() {})
                 .block();
     }
+
 
 }
