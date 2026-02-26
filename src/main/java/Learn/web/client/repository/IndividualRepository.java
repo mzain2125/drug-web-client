@@ -6,5 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IndividualRepository extends JpaRepository<Individual, Long> {
-    // you can add custom queries if needed later
+
+    // Custom query example
+    boolean existsByReferenceNumber(String referenceNumber);
+
 }

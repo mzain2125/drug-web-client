@@ -4,17 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "aliases")
+@Table(name = "last_day_updated")
 @Getter
 @Setter
-public class IndividualAlias {
+public class LastDayUpdated {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String aliasName;
-    private String quality;
+
+    private LocalDate date;
 
     @ManyToOne
     @JoinColumn(name = "individual_id")
@@ -28,20 +30,12 @@ public class IndividualAlias {
         this.id = id;
     }
 
-    public String getAliasName() {
-        return aliasName;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setAliasName(String aliasName) {
-        this.aliasName = aliasName;
-    }
-
-    public String getQuality() {
-        return quality;
-    }
-
-    public void setQuality(String quality) {
-        this.quality = quality;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public Individual getIndividual() {
@@ -50,6 +44,9 @@ public class IndividualAlias {
 
     public void setIndividual(Individual individual) {
         this.individual = individual;
+    }
+
+    public void setUpdatedDate(LocalDate parse) {
     }
 }
 

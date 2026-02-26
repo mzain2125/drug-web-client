@@ -5,17 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "aliases")
+@Table(name = "nationalities")
 @Getter
 @Setter
-public class IndividualAlias {
+public class Nationality {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String aliasName;
-    private String quality;
-
+    private String value;
     @ManyToOne
     @JoinColumn(name = "individual_id")
     private Individual individual;
@@ -28,20 +26,12 @@ public class IndividualAlias {
         this.id = id;
     }
 
-    public String getAliasName() {
-        return aliasName;
+    public String getValue() {
+        return value;
     }
 
-    public void setAliasName(String aliasName) {
-        this.aliasName = aliasName;
-    }
-
-    public String getQuality() {
-        return quality;
-    }
-
-    public void setQuality(String quality) {
-        this.quality = quality;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public Individual getIndividual() {

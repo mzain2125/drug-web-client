@@ -1,33 +1,26 @@
 package Learn.web.client.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Entity
-@Table(name = "individual_places_of_birth")
-public class IndividualPlaceOfBirth {
+@Table(name = "addresses")
+@Getter
+@Setter
+public class IndividualAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String city;
     private String country;
     private String stateProvince;
+    private String note;
 
-    public IndividualPlaceOfBirth() {
-    }
-
-    public IndividualPlaceOfBirth(Long id, String city, String country, String stateProvince) {
-        this.id = id;
-        this.city = city;
-        this.country = country;
-        this.stateProvince = stateProvince;
-    }
+    @ManyToOne
+    @JoinColumn(name = "individual_id")
+    private Individual individual;
 
     public Long getId() {
         return id;
@@ -60,4 +53,21 @@ public class IndividualPlaceOfBirth {
     public void setStateProvince(String stateProvince) {
         this.stateProvince = stateProvince;
     }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Individual getIndividual() {
+        return individual;
+    }
+
+    public void setIndividual(Individual individual) {
+        this.individual = individual;
+    }
 }
+
