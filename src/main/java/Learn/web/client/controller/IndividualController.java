@@ -1,24 +1,22 @@
 package Learn.web.client.controller;
 
 
-import Learn.web.client.service.IndividualService;
-import org.json.JSONObject;
+import Learn.web.client.service.UnscService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/xml")
+@RequiredArgsConstructor
 public class IndividualController {
 
-    private final IndividualService individualService;
-
-    public IndividualController(IndividualService individualService) {
-        this.individualService = individualService;
-    }
+    private final UnscService unscService;
 
     @GetMapping("/fetch")
-    public ResponseEntity<?> fetchXml() {
-        JSONObject json = individualService.fetchXmlAndSave();
-        return ResponseEntity.ok(json.toString(4));
+    public ResponseEntity<?> fetchXml() throws JsonProcessingException {
+        String  json = unscService.fetchAndSave();
+        return ResponseEntity.ok(json);
     }
 }
