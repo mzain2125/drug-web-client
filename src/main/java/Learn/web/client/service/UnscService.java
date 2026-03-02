@@ -28,7 +28,7 @@ public class UnscService {
 
     private static final String ENTITY_TYPE_INDIVIDUAL = "I";
     private static final int DATE_PREFIX_LENGTH = 10; // "YYYY-MM-DD"
-
+//    private static final Logger log = LoggerFactory.getLogger(UnscService.class);
     @Value("${unsc.url}")
     private String unscUrl;
 
@@ -41,11 +41,6 @@ public class UnscService {
         this.unscDataRepository = unscDataRepository;
         this.xmlMapper = new XmlMapper();
     }
-
-    // -------------------------------------------------------------------------
-    // Public API
-    // -------------------------------------------------------------------------
-
     /**
      * Fetches the UNSC XML feed, maps Individual records directly to entities,
      * saves them to the database, and returns a success message.
@@ -57,9 +52,7 @@ public class UnscService {
 
         log.info("Deleting UNSC Individual data.");
         unscDataRepository.deleteAll();
-
         log.info("Starting UNSC Individual data fetch from URL: {}", unscUrl);
-
         String xml = fetchXml();
         JsonNode root = parseXml(xml);
         List<UnscData> entities = extractAndMapIndividuals(root);
@@ -75,13 +68,7 @@ public class UnscService {
         return String.format("Success: %d individual records saved to the database.", entities.size());
     }
 
-    // -------------------------------------------------------------------------
-    // Private helpers
-    // -------------------------------------------------------------------------
 
-    /**
-     * Calls the remote UN endpoint and returns raw XML as a String.
-     */
     private String fetchXml() {
         log.debug("Sending GET request to: {}", unscUrl);
         try {
@@ -110,9 +97,6 @@ public class UnscService {
         }
     }
 
-    /**
-     * Parses the raw XML string into a Jackson JsonNode tree.
-     */
     private JsonNode parseXml(String xml) {
         log.debug("Parsing XML into JsonNode tree");
         try {
