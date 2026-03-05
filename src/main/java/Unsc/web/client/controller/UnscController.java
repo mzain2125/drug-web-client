@@ -1,10 +1,7 @@
-package Learn.web.client.controller;
+package Unsc.web.client.controller;
 
 
-import Learn.web.client.service.UnscService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import Unsc.web.client.service.UnscService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

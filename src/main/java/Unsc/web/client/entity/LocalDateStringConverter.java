@@ -1,4 +1,4 @@
-package Learn.web.client.entity;
+package Unsc.web.client.entity;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

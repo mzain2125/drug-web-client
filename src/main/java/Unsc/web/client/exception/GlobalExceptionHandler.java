@@ -1,4 +1,4 @@
-package Learn.web.client.exception;
+package Unsc.web.client.exception;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package Learn.web.client.exception;
+package Unsc.web.client.exception;
 
 /**
  * Thrown when the fetched XML cannot be parsed into the expected structure.

@@ -1,4 +1,4 @@
-package Learn.web.client.config;
+package Unsc.web.client.config;
 
 import org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientSsl;
 import org.springframework.context.annotation.Bean;

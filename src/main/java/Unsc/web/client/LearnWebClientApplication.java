@@ -1,4 +1,4 @@
-package Learn.web.client;
+package Unsc.web.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

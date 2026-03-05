@@ -1,4 +1,4 @@
-package Learn.web.client.exception;
+package Unsc.web.client.exception;
 
 /**
  * Thrown when the remote UNSC XML endpoint cannot be reached or returns an error response.
